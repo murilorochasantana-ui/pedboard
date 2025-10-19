@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PedBoard - Teste</title>
+    <link rel="stylesheet" href="style/Reset_css.css">
+    <link rel="stylesheet" href="style/Buscar.css">
+    <link rel="stylesheet" href="style/Barra_lateral.css">
+</head>
+
+<body> <!-- Sidebar (já pronto) -->
+    <aside class="sidebar" aria-label="Barra lateral">
+        <div class="sidebar-top">
+            <button class="profile-btn" aria-label="Perfil">
+                <img src="imagens/perfil.png" alt="Perfil">
+            </button>
+
+            <div class="search-bar-inline" role="search" aria-label="Buscar">
+                <img class="search-icon" src="imagens/Busca.png" alt="Buscar ícone">
+                <input class="search-input" type="text" placeholder="BUSCAR" aria-label="Buscar">
+                <button type="button" class="search-clear hidden" aria-label="Cancelar busca">
+                    <img src="imagens/Cancelar.png" alt="Cancelar ícone">
+                </button>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Navegação principal">
+            <a class="nav-item" href="Deashboard.html" data-key="dashboard" title="Dashboard">
+                <img src="imagens/Deashboard.png" alt="Dashboard">
+            </a>
+            <a class="nav-item" href="tarefas.html" data-key="tarefas" title="Tarefas">
+                <img src="imagens/tarefas.png" alt="Tarefas">
+            </a>
+            <a class="nav-item" href="graficos.html" data-key="graficos" title="Gráficos">
+                <img src="imagens/graficos.png" alt="Gráficos">
+            </a>
+            <a class="nav-item" href="notas.html" data-key="notas" title="Notas">
+                <img src="imagens/notas.png" alt="Notas">
+            </a>
+            <a class="nav-item" href="calendario.html" data-key="calendario" title="Calendário">
+                <img src="imagens/calendario.png" alt="Calendário">
+            </a>
+            <a class="nav-item" href="config.html" data-key="config" title="Configuração">
+                <img src="imagens/configuração.png" alt="Configuração">
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Conteúdo de exemplo -->
+    <main>
+    </main>
+    <script src="scripts/sidebar.js"></script>
+</body>
+
+</html>

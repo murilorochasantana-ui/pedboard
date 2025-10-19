@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PedBoard - Notas</title>
+  <link rel="stylesheet" href="style/Reset_css.css">
+  <link rel="stylesheet" href="style/Buscar.css">
+  <link rel="stylesheet" href="style/Barra_lateral.css">
+  <link rel="stylesheet" href="style/Notas.css">
+</head>
+<body>
+  <main style="margin-left:120px; padding:24px;">
+    <h1>Notas</h1>
+
+    <!-- chama o componente notes (será injetado por load-components.js) -->
+    <div data-include="notes"></div>
+
+    <!-- espaço para o conteúdo de notas (lista/cards) -->
+    <section id="notes-list" style="margin-top:16px;">
+      <!-- aqui você poderá renderizar as notas -->
+    </section>
+  </main>
+
+  <script src="scripts/load-components.js"></script>
+</body>
+</html>

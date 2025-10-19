@@ -1,0 +1,256 @@
+:root {
+  /* ajuste este valor para subir/baixar toda a lista de ícones */
+  --sidebar-nav-offset: 40px;
+}
+
+.sidebar {
+    position: fixed;
+    left: 16px;
+    top: 16px;
+    bottom: 16px;
+    width: 88px;                  /* largura da barra */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 12px;
+    box-sizing: border-box;
+    background: transparent;      /* transparente para ligar ao layout — ajustar se quiser cor */
+}
+
+/* profile avatar (top) */
+.sidebar .profile-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: none;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    cursor: pointer;
+    margin-left: 8px; /* ajuste esse valor para mover mais/menos */
+}
+.sidebar .profile-btn img { width:100%; height:100%; object-fit:cover; border-radius:8px; }
+
+/* search bar inside the sidebar */
+.sidebar .search-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.sidebar .search-bar {
+    width: 100%;             /* fica alinhada à largura da sidebar */
+    max-width: 220px;        /* limite caso a sidebar seja maior no futuro */
+    height: 44px;
+    box-sizing: border-box;
+    overflow: hidden;        /* evita que vaze pela tela */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 8px;
+    background: #bfbfbf;          /* cinza um pouco mais escuro que o placeholder */
+    border-radius: 8px;
+}
+.sidebar .search-bar .search-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    object-fit: contain;
+}
+.sidebar .search-bar .search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #222;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;    <aside class="sidebar" aria-label="Barra lateral">
+        <div class="sidebar-top">
+            <!-- perfil / topo -->
+            <button class="profile-btn" aria-label="Perfil">
+                <img src="" alt="Perfil">
+            </button>
+    
+            <!-- NOTE: mantemos a barra de busca como elemento independente com classe "search-bar-inline" -->
+            <div class="search-bar-inline" role="search" aria-label="Buscar">
+                <img class="search-icon" src="" alt="Buscar ícone">
+                <input class="search-input" type="text" placeholder="BUSCAR" aria-label="Buscar">
+                <button type="button" class="search-clear hidden" aria-label="Cancelar busca">
+                    <img src="" alt="Cancelar ícone">
+                </button>
+            </div>
+        </div>
+    
+        <!-- ícones de navegação -->
+        <nav class="sidebar-nav" aria-label="Navegação principal">
+            <!-- ...existing nav items... -->
+        </nav>
+    </aside>
+    text-overflow: ellipsis; /* evita que o texto quebre visualmente */
+}
+.sidebar .search-bar .search-clear {
+    flex: 0 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.sidebar .search-bar .search-clear img { width:16px; height:16px; object-fit:contain; }
+.sidebar .search-bar .search-clear.hidden { display:none; }
+
+/* top row wrapper (mantido dentro da sidebar para semântica) */
+.sidebar .sidebar-top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 6px; /* ou use margin-top/margin-left conforme o design */
+}
+
+/* mantenha o profile visual como está */
+.sidebar .profile-btn { /* ...existing code... */ }
+
+/* versão fixa/inline da barra de busca — centralizada horizontalmente;
+   top será ajustado por JS para alinhar com o perfil */
+.search-bar-inline {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(600px, calc(100% - 200px));
+    max-width: 720px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 12px;
+    background: #bfbfbf;
+    border-radius: 8px;
+    box-sizing: border-box;
+    z-index: 60;
+    overflow: hidden;
+}
+
+/* controles internos da busca (mesma estrutura que já tem) */
+.search-bar-inline .search-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    object-fit: contain;
+}
+.search-bar-inline .search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #222;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+}
+.search-bar-inline .search-input::placeholder {
+    color: #8f8f8f;
+    opacity: 1;
+}
+.search-bar-inline .search-clear {
+    flex: 0 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.search-bar-inline .search-clear img { width:16px; height:16px; object-fit:contain; }
+.search-bar-inline .search-clear.hidden { display:none; }
+
+/* nav icons column */
+.sidebar-nav {
+    margin-top: var(--sidebar-nav-offset);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width:100%;
+}
+.sidebar-nav .nav-item {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: #ffffff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: transform .12s ease, box-shadow .12s ease;
+    position: relative;
+}
+.sidebar-nav .nav-item:hover { transform: translateY(-2px); box-shadow:0 6px 14px rgba(0,0,0,0.08); }
+
+/* circle placeholder for icons (you'll replace img src later) */
+.sidebar-nav .nav-item img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+
+
+/* hidden labels (optional) */
+.sidebar-nav .nav-label {
+    display: none;
+    font-size: 13px;
+    margin-left: 10px;
+    color: #222;
+}
+
+/* estado invertido apenas para o item selecionado */
+.sidebar-nav .nav-item.inverted {
+    background: #111;         /* fundo escuro */
+    color: #fff;              /* texto/ícones em branco (se houver texto) */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    border: none;
+    transition: background .18s ease, color .18s ease;
+}
+
+/* se o ícone for uma imagem, mantemos a imagem sem alteração
+   (evita inverter o PNG/SVG) */
+.sidebar-nav .nav-item.inverted img {
+    filter: none;
+}
+
+/* opcional: estilo reduzido quando ativo+invertido */
+.sidebar-nav .nav-item.active.inverted {
+    outline: 3px solid rgba(255,255,255,0.12);
+    outline-offset: 3px;
+}
+
+/* pequenos ajustes responsivos */
+@media (max-width: 420px) {
+    .sidebar .search-bar { width: 180px; }
+    .sidebar { left: 8px; top: 8px; bottom: 8px; }
+}
+
+/* modo invertido: inverte cores da página.
+   Para preservar imagens e svgs (não invertê-las), aplicamos o mesmo filtro,
+   de forma que o resultado líquido nos ícones volte ao normal. */
+body.inverted {
+    filter: invert(1) hue-rotate(180deg);
+    transition: filter .18s ease;
+}
+
+/* aplicar o mesmo filtro aos próprios imgs/svgs dentro do body.inverted
+   faz com que eles sejam "re-invertidos" e apareçam corretos */
+body.inverted img,
+body.inverted svg {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* se tiver elementos com background-image que não devem inverter,
+   adicione uma classe .no-invert e anule manualmente:
+   .no-invert { filter: none !important; } */
+body.inverted .no-invert { filter: none !important; }

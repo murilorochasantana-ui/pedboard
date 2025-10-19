@@ -1,0 +1,59 @@
+.tasks-strip {
+    margin-top: 80px;
+}
+
+.tasks-strip-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.tasks-title {
+    font-size: 18px;
+    color: #111;
+}
+
+.tasks-add {
+    background: #000;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.tasks-list {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+/* placeholder card */
+.tasks-list .task-card {
+    background: #f8f8f8;
+    padding: 12px;
+    border-radius: 10px;
+    min-height: 80px;
+}
+
+@media (max-width:900px) {
+    .tasks-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:480px) {
+    .tasks-list {
+        grid-template-columns: 1fr;
+    }
+}
